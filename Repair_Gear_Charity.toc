@@ -1,0 +1,7 @@
+## Interface: 70000
+## Title: Charity Gear Repair
+## Author: Bilbo
+## Notes: Donations to the poor.
+## Version: 1.1
+## SavedVariables: CGR_SavedVars
+Repair_Gear_Charity.lua
