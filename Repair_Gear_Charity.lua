@@ -1,5 +1,5 @@
 CGR_SavedVars = {
-    player = "",
+    	player = "",
 	amount = 1,
 	xpos = 330,
 	ypos = -640,
@@ -9,10 +9,7 @@ CGR_SavedVars = {
 	autodonate = true
 }
 
-player = CGR_SavedVars.player;
-
  local button = CreateFrame("Button", nil, mainframe)
-
     local function OnEnter(self)
         if self.Tooltip then
             GameTooltip:SetOwner(self,"ANCHOR_TOP");
@@ -51,16 +48,16 @@ player = CGR_SavedVars.player;
 	ptex:SetAllPoints()
 	button:SetPushedTexture(ptex)
 	
-button:SetScript("OnClick", function(self, arg1)
-    print("donated", CGR_SavedVars.amount, "c to: " .. CGR_SavedVars.player)
-	SetSendMailMoney(1);
-	SendMail(CGR_SavedVars.player,CGR_SavedVars.hmsg,CGR_SavedVars.bmsg)
-end)
+	button:SetScript("OnClick", function(self, arg1)
+	    print("donated", CGR_SavedVars.amount, "c to: " .. CGR_SavedVars.player)
+		SetSendMailMoney(1);
+		SendMail(CGR_SavedVars.player,CGR_SavedVars.hmsg,CGR_SavedVars.bmsg)
+	end)
 
 	  button:RegisterEvent("MAIL_SHOW")
 	  button:RegisterEvent("MAIL_CLOSED")
 	  
-button:SetScript("OnEvent", function(self, event)
+	button:SetScript("OnEvent", function(self, event)
 	if event == "MAIL_SHOW" then
 		button.Tooltip="Donate to " .. CGR_SavedVars.player;	
 		button:Show();
@@ -75,7 +72,7 @@ button:SetScript("OnEvent", function(self, event)
 	if event == "MAIL_CLOSED" then
 		button:Hide();
 	end
-end)
+	end)
 
 
 
@@ -148,6 +145,6 @@ end
 	"/cgr show - shows amount, header, message and character settings");
  end
 end
-SlashCmdList["CRG"] = handler; -- Also a valid assignment strategy
+SlashCmdList["CRG"] = handler;
 
 
